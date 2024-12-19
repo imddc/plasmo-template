@@ -17,6 +17,7 @@ function Content() {
   return (
     <>
       <div className="text-red-50">plasmo template</div>
+
       <div>
         this is content
       </div>
