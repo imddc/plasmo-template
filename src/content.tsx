@@ -1,5 +1,7 @@
 import type { PlasmoCSConfig } from 'plasmo'
 import cssText from 'data-text:~/styles/global.css'
+import { Button } from '~/components/ui/button'
+import { injectMainStyles } from '~/lib/utils'
 
 export const config: PlasmoCSConfig = {
   matches: ['<all_urls>'],
@@ -14,14 +16,16 @@ export function getStyle() {
 }
 
 function Content() {
-  return (
-    <>
-      <div className="text-red-50">plasmo template</div>
+  injectMainStyles(cssText)
 
-      <div>
-        this is content
-      </div>
-    </>
+  return (
+    <div>
+      <h1 className="text-blue-500">
+        plasmo template
+      </h1>
+
+      <Button type="button">this is a button from shadcn</Button>
+    </div>
   )
 }
 
