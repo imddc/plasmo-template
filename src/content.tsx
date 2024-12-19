@@ -1,25 +1,25 @@
-import cssText from 'data-text:~/main.css'
-import type { PlasmoCSConfig } from "plasmo"
-import { injectMainStyles } from '~/lib/utils'
+import type { PlasmoCSConfig } from 'plasmo'
+import cssText from 'data-text:~/styles/global.css'
 
 export const config: PlasmoCSConfig = {
-  matches: ["<all_urls>"],
-  all_frames: true
+  matches: ['<all_urls>'],
+  all_frames: true,
 }
 
 // 引入tailwind
-export const getStyle = () => {
-  const style = document.createElement("style")
+export function getStyle() {
+  const style = document.createElement('style')
   style.textContent = cssText
   return style
 }
 
-const Content = () => {
-  injectMainStyles(cssText)
-
+function Content() {
   return (
     <>
-      this is content
+      <div className="text-red-50">plasmo template</div>
+      <div>
+        this is content
+      </div>
     </>
   )
 }

@@ -67,24 +67,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-/* width */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  @apply bg-background;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  @apply bg-slate-300;
-  border-radius: 5px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-slate-400;
-}

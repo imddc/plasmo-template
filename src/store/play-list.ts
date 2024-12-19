@@ -1,5 +1,5 @@
-import { create, type StateCreator } from 'zustand'
-import { persist, createJSONStorage } from 'zustand/middleware'
+import { create } from 'zustand'
+import { createJSONStorage, persist } from 'zustand/middleware'
 
 export interface PlayList {
   bv: string
@@ -14,7 +14,7 @@ interface PlayListState {
 }
 
 export const usePlaylist = create<PlayListState>()(persist(
-  (set) => ({
+  set => ({
     playlist: [],
     add: (bv, start, end) => {
       if (!bv) {
@@ -26,7 +26,7 @@ export const usePlaylist = create<PlayListState>()(persist(
           return state
         }
         return {
-          playlist: [...state.playlist, { bv, start, end }]
+          playlist: [...state.playlist, { bv, start, end }],
         }
       })
     },
@@ -34,13 +34,13 @@ export const usePlaylist = create<PlayListState>()(persist(
       if (!bv) {
         return
       }
-      set((state) => ({
-        playlist: state.playlist.filter(i => i.bv !== bv)
+      set(state => ({
+        playlist: state.playlist.filter(i => i.bv !== bv),
       }))
     },
   }),
   {
     name: 'playlist',
-    storage: createJSONStorage(() => localStorage)
-  }
+    storage: createJSONStorage(() => localStorage),
+  },
 ))
